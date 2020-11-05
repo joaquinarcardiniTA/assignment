@@ -1,0 +1,10 @@
+.page-header
+  = link_to cash_managements_path, class: 'btn btn-default company-back-btn' do
+    %span.glyphicon.glyphicon-list-alt
+    Back
+  .container.mx-auto{ :style => "width: 47%;" }
+    .col-sm-10
+      %h2 New cash management
+      %br
+
+    = render 'form'

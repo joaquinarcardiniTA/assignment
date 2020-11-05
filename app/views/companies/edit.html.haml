@@ -1,0 +1,12 @@
+.page-header
+  = link_to companies_path, class: 'btn btn-default company-back-btn' do
+    %span.glyphicon.glyphicon-list-alt
+    Back
+  = link_to @company, class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-info-sign
+    Show
+  .container.mx-auto{ :style => "width: 40%;" }
+    .col-sm-10
+      %h1 Editing company
+
+    = render 'form'

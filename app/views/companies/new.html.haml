@@ -1,0 +1,10 @@
+.page-header
+  = link_to companies_path, class: 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    Back
+  .container.mx-auto{ :style => "width: 40%;" }
+    .col-sm-10
+      %h2 New company
+      %br
+
+    = render 'form'

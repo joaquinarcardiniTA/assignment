@@ -1,0 +1,29 @@
+- if can? :create, Company
+  .page-header
+    = link_to new_company_path, class: 'btn btn-primary' do
+      %span.glyphicon.glyphicon-plus
+      New Company
+%br/
+%h2 Listing companies
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th Name
+        %th Country
+        %th
+        %th
+        %th
+    %tbody
+      - @companies.each do |company|
+        %tr
+          %td
+            = company.name
+          %td
+            = company.country
+          %td
+            = link_to 'Show', company if can? :read, Company
+          %td
+            = link_to 'Edit', edit_company_path(company) if can? :update, Company
+          %td
+            = link_to 'Destroy', company, data: { confirm: 'Are you sure?' }, method: :delete if can? :destroy, Company

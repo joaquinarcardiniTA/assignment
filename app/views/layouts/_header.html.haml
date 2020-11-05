@@ -1,0 +1,20 @@
+/ Grey with black text
+%nav.navbar.navbar-expand-sm.bg-light.navbar-light
+  %ul.navbar-nav
+    %li.nav-item.active
+      %a.nav-link{:href => "/"} Home
+    - unless current_user
+      %li.nav-item.active
+        %a.nav-link{:href => new_user_session_path} Sign In
+      %li.nav-item.active
+        %a.nav-link{:href => new_user_registration_path} Sign Up
+    - else
+      - if can? :read, Company
+        %li.nav-item.active.pull-right
+          %a.nav-link{:href => companies_path} Company
+      - if can? :read, CashManagement
+        %li.nav-item.active.pull-right
+          %a.nav-link{:href => cash_managements_path} Cash Management
+      %li.nav-item.active.pull-right
+        %a.nav-link{"data-method" => "delete", :href => destroy_user_session_path} Sign out
+%br/

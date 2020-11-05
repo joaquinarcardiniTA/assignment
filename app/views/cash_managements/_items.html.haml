@@ -1,0 +1,10 @@
+- @cash_managements.each do |cash_management|
+  %tr
+    %td= cash_management.company&.name
+    %td= cash_management.entry_month
+    %td= cash_management.initial_cash
+    %td= cash_management.cash_out
+    %td= cash_management.cash_in
+    %td= link_to 'Show', cash_management if can? :read, CashManagement
+    %td= link_to 'Edit', edit_cash_management_path(cash_management) if can? :update, CashManagement
+    %td= link_to 'Destroy', cash_management, data: { confirm: 'Are you sure?' }, method: :delete if can? :destroy, CashManagement

@@ -1,0 +1,22 @@
+.page-header
+  - if can? :create, Company
+    = link_to new_cash_management_path, class: 'btn btn-primary' do
+      %span.glyphicon.glyphicon-plus
+      New Cash management
+  = select_tag(:company_id, options_from_collection_for_select(Company.order(:name), :id, :name), {:prompt => "Select Company", :class => 'form-control float-right', style: 'width: 15%;'})
+%br/
+%h2 Listing cash managements
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th Company
+        %th Month
+        %th Initial cash
+        %th Cash out
+        %th Cash in
+        %th
+        %th
+        %th
+    %tbody#items_container
+      = render 'items'

@@ -1,0 +1,22 @@
+.page-header
+  = link_to cash_managements_path, class: 'btn btn-default company-back-btn' do
+    %span.glyphicon.glyphicon-list-alt
+    Back
+  - if can? :update, CashManagement
+    = link_to edit_cash_management_path(@cash_management), class: 'btn btn-primary' do
+      %span.glyphicon.glyphicon-pencil
+      Edit
+  %h2 Show cash management
+%dl.dl-horizontal
+  %dt Initial cash:
+  %dd
+    = @cash_management.initial_cash
+  %dt Cash out:
+  %dd
+    = @cash_management.cash_out
+  %dt Cash in:
+  %dd
+    = @cash_management.cash_in
+  %dt Company:
+  %dd
+    = @cash_management.company&.name
