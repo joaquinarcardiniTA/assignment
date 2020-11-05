@@ -49,3 +49,4 @@ Finally, run the local server:
 ```
 $ rails server
 ```
+![erb diagram](https://github.com/joaquinarcardiniTA/assignment/blob/master/er-diagram.jpg?raw=true)
